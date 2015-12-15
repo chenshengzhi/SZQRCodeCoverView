@@ -23,7 +23,7 @@
     SZQRCodeCoverView *coverView = [[SZQRCodeCoverView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:coverView];
     
-    [coverView startScanAnimation];
+    [coverView startDetectionAnimation];
     
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandle:)];
     [self.redView addGestureRecognizer:panGesture];

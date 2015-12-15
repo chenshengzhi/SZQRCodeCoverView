@@ -10,7 +10,7 @@
 
 @interface SZQRCodeCoverView ()
 
-@property (nonatomic, strong) UIImageView *scanLineImageView;
+@property (nonatomic, strong) UIImageView *detectionLineImageView;
 
 @end
 
@@ -19,10 +19,10 @@
 #pragma mark - property method -
 - (void)setAreaRectWithoutCover:(CGRect)areaRectWithoutCover {
     _areaRectWithoutCover = areaRectWithoutCover;
-    if (_scanLineImageView) {
-        [_scanLineImageView removeFromSuperview];
-        _scanLineImageView = nil;
-        [self scanLineImageView];
+    if (_detectionLineImageView) {
+        [_detectionLineImageView removeFromSuperview];
+        _detectionLineImageView = nil;
+        [self detectionLineImageView];
     }
     [self setNeedsDisplay];
 }
@@ -52,40 +52,40 @@
     [self setNeedsDisplay];
 }
 
-- (void)setScanLineBackgroundColor:(UIColor *)scanLineBackgroundColor {
-    _scanLineBackgroundColor = scanLineBackgroundColor;
-    if (_scanLineImageView) {
-        _scanLineImageView.image = [self createScanLineImage];
+- (void)setDetectionLineBackgroundColor:(UIColor *)detectionLineBackgroundColor {
+    _detectionLineBackgroundColor = detectionLineBackgroundColor;
+    if (_detectionLineImageView) {
+        _detectionLineImageView.image = [self createDetectionLineImage];
     }
 }
 
-- (void)setScanLineFrontColor:(UIColor *)scanLineFrontColor {
-    _scanLineFrontColor = scanLineFrontColor;
-    if (_scanLineImageView) {
-        _scanLineImageView.image = [self createScanLineImage];
+- (void)setDetectionLineFrontColor:(UIColor *)detectionLineFrontColor {
+    _detectionLineFrontColor = detectionLineFrontColor;
+    if (_detectionLineImageView) {
+        _detectionLineImageView.image = [self createDetectionLineImage];
     }
 }
 
-- (void)setScanLineImage:(UIImage *)scanLineImage {
-    _scanLineImage = scanLineImage;
-    if (_scanLineImageView) {
-        _scanLineImageView.image = [self createScanLineImage];
+- (void)setDetectionLineImage:(UIImage *)detectionLineImage {
+    _detectionLineImage = detectionLineImage;
+    if (_detectionLineImageView) {
+        _detectionLineImageView.image = [self createDetectionLineImage];
     }
 }
 
-- (UIImageView *)scanLineImageView {
-    if (!_scanLineImageView) {
+- (UIImageView *)detectionLineImageView {
+    if (!_detectionLineImageView) {
         CGRect frame = CGRectMake(CGRectGetMinX(self.areaRectWithoutCover) + 5, CGRectGetMinY(self.areaRectWithoutCover) + 5, CGRectGetWidth(self.areaRectWithoutCover) - 10, 6);
-        _scanLineImageView = [[UIImageView alloc] initWithFrame:frame];
-        if (!_scanLineImage) {
-            _scanLineImageView.image = [self createScanLineImage];
+        _detectionLineImageView = [[UIImageView alloc] initWithFrame:frame];
+        if (!_detectionLineImage) {
+            _detectionLineImageView.image = [self createDetectionLineImage];
         } else {
-            _scanLineImageView.image = _scanLineImage;
+            _detectionLineImageView.image = _detectionLineImage;
         }
-        _scanLineImageView.contentMode = UIViewContentModeScaleToFill;
-        [self addSubview:_scanLineImageView];
+        _detectionLineImageView.contentMode = UIViewContentModeScaleToFill;
+        [self addSubview:_detectionLineImageView];
     }
-    return _scanLineImageView;
+    return _detectionLineImageView;
 }
 
 #pragma mark - life cycle -
@@ -99,8 +99,8 @@
     _anchorLineWidth = 4;
     _paddingBetweenAnchorAndNoFillAreaBorder = 1 / [UIScreen mainScreen].scale;
 
-    _scanLineBackgroundColor = [UIColor colorWithRed:0.608 green:0.973 blue:0.090 alpha:1.000];
-    _scanLineFrontColor = [UIColor colorWithRed:0.835 green:0.988 blue:0.612 alpha:1.000];
+    _detectionLineBackgroundColor = [UIColor colorWithRed:0.608 green:0.973 blue:0.090 alpha:1.000];
+    _detectionLineFrontColor = [UIColor colorWithRed:0.835 green:0.988 blue:0.612 alpha:1.000];
     _animationDuration = 3;
     
     CGFloat defaultWidth = 180;
@@ -190,12 +190,12 @@
 }
 
 #pragma mark - public method -
-- (void)startScanAnimation {
-    [_scanLineImageView.layer removeAllAnimations];
+- (void)startDetectionAnimation {
+    [_detectionLineImageView.layer removeAllAnimations];
     
-    CGRect frame = self.scanLineImageView.frame;
+    CGRect frame = self.detectionLineImageView.frame;
     frame.origin = CGPointMake(CGRectGetMinX(self.areaRectWithoutCover) + 5, CGRectGetMinY(self.areaRectWithoutCover) + 5);
-    self.scanLineImageView.frame = frame;
+    self.detectionLineImageView.frame = frame;
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.y"];
     animation.fromValue = @(CGRectGetMinY(self.areaRectWithoutCover) + 5);
@@ -203,26 +203,26 @@
     animation.repeatCount = HUGE_VALF;
     animation.autoreverses = YES;
     animation.duration = self.animationDuration;
-    [self.scanLineImageView.layer addAnimation:animation forKey:nil];
+    [self.detectionLineImageView.layer addAnimation:animation forKey:nil];
 }
 
-- (void)stopScanAnimation {
-    [_scanLineImageView.layer removeAllAnimations];
+- (void)stopDetectionAnimation {
+    [_detectionLineImageView.layer removeAllAnimations];
 }
 
 #pragma mark - util -
-- (UIImage *)createScanLineImage {
+- (UIImage *)createDetectionLineImage {
     CGFloat height = 4;
     CGFloat width = 3;
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, [UIScreen mainScreen].scale);
     CGContextRef contextRef = UIGraphicsGetCurrentContext();
     
-    CGContextSetShadowWithColor(contextRef, CGSizeMake(0, 0), .5, [self.scanLineBackgroundColor colorWithAlphaComponent:.8].CGColor);
-    CGContextSetFillColorWithColor(contextRef, self.scanLineBackgroundColor.CGColor);
+    CGContextSetShadowWithColor(contextRef, CGSizeMake(0, 0), .5, [self.detectionLineBackgroundColor colorWithAlphaComponent:.8].CGColor);
+    CGContextSetFillColorWithColor(contextRef, self.detectionLineBackgroundColor.CGColor);
     CGContextFillEllipseInRect(contextRef, CGRectMake(0.5, 0.5, width-1, height-1));
     
-    CGContextSetShadowWithColor(contextRef, CGSizeMake(0, 0), .5, [self.scanLineFrontColor colorWithAlphaComponent:.8].CGColor);
-    CGContextSetFillColorWithColor(contextRef, self.scanLineFrontColor.CGColor);
+    CGContextSetShadowWithColor(contextRef, CGSizeMake(0, 0), .5, [self.detectionLineFrontColor colorWithAlphaComponent:.8].CGColor);
+    CGContextSetFillColorWithColor(contextRef, self.detectionLineFrontColor.CGColor);
     CGContextFillEllipseInRect(contextRef, CGRectMake((width-2)/2, (height-1)/2, 2, 1));
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

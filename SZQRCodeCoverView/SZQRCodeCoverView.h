@@ -20,15 +20,15 @@
 
 @property (nonatomic) CGFloat paddingBetweenAnchorAndNoFillAreaBorder;
 
-@property (nonatomic, strong) UIColor *scanLineBackgroundColor;
-@property (nonatomic, strong) UIColor *scanLineFrontColor;
+@property (nonatomic, strong) UIColor *detectionLineBackgroundColor;
+@property (nonatomic, strong) UIColor *detectionLineFrontColor;
 
-@property (nonatomic, strong) UIImage *scanLineImage;
+@property (nonatomic, strong) UIImage *detectionLineImage;
 
 @property (nonatomic) CGFloat animationDuration;
 
-- (void)startScanAnimation;
+- (void)startDetectionAnimation;
 
-- (void)stopScanAnimation;
+- (void)stopDetectionAnimation;
 
 @end
