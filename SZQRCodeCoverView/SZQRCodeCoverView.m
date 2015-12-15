@@ -207,6 +207,8 @@
 }
 
 - (void)stopDetectionAnimation {
+    CALayer *presentationLayer = _detectionLineImageView.layer.presentationLayer;
+    _detectionLineImageView.frame = presentationLayer.frame;
     [_detectionLineImageView.layer removeAllAnimations];
 }
 
