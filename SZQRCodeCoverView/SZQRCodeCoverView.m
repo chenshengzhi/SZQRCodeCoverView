@@ -228,6 +228,7 @@
     CGContextFillEllipseInRect(contextRef, CGRectMake((width-2)/2, (height-1)/2, 2, 1));
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeStretch];
 }
 
