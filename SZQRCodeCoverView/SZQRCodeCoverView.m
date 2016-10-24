@@ -129,6 +129,8 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+    
     [self commInit];
 }
 

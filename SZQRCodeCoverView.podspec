@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SZQRCodeCoverView"
 
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
 
   s.summary      = "qrcode cover view"
 
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
-  s.author       = { "陈圣治" => "csz2136@163.com" }
+  s.author       = { "陈圣治" => "329012084@qq.com" }
 
   s.platform     = :ios, "6.0"
 
