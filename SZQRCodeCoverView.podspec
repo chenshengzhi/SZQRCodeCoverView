@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SZQRCodeCoverView"
 
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
 
   s.summary      = "qrcode cover view"
 
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "陈圣治" => "329012084@qq.com" }
 
-  s.platform     = :ios, "6.0"
+  s.platform     = :ios, "7.0"
 
   s.source       = { :git => "https://github.com/chenshengzhi/SZQRCodeCoverView.git", :tag => s.version.to_s }
 

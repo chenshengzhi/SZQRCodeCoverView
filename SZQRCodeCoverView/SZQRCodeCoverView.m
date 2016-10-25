@@ -93,7 +93,7 @@
     self.opaque = NO;
     self.userInteractionEnabled = NO;
     
-    _coverColor = [UIColor colorWithWhite:0 alpha:.3];
+    _coverColor = [UIColor colorWithWhite:0 alpha:.5];
     _anchorColor = [UIColor colorWithRed:0.345 green:0.882 blue:0.000 alpha:1.000];
     _anchorLineLength = 15;
     _anchorLineWidth = 4;
@@ -103,8 +103,11 @@
     _detectionLineFrontColor = [UIColor colorWithRed:0.835 green:0.988 blue:0.612 alpha:1.000];
     _animationDuration = 3;
     
-    CGFloat defaultWidth = 180;
-    _areaRectWithoutCover = CGRectMake(MAX(0, self.frame.size.width/2 - 150/2), MAX(0, self.frame.size.height/2 - 150/2), defaultWidth, defaultWidth);
+    CGFloat defaultWidth = self.frame.size.width * 0.7;
+    _areaRectWithoutCover = CGRectMake(ceil(self.frame.size.width/2 - defaultWidth/2),
+                                       ceil(self.frame.size.height/2 - defaultWidth/2),
+                                       defaultWidth,
+                                       defaultWidth);
 }
 
 - (instancetype)init {

@@ -215,11 +215,12 @@
 		24D9E4D91C1EC0CF00BFEE22 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = shengzhichen;
 				TargetAttributes = {
 					24D9E4E01C1EC0CF00BFEE22 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = U3N6PE6F6K;
 					};
 					24D9E4F91C1EC0CF00BFEE22 = {
 						CreatedOnToolsVersion = 7.2;
@@ -354,8 +355,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -397,8 +400,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -425,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U3N6PE6F6K;
 				INFOPLIST_FILE = SZQRCodeCoverViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shengzhichen.SZQRCodeCoverViewDemo;
@@ -436,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U3N6PE6F6K;
 				INFOPLIST_FILE = SZQRCodeCoverViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shengzhichen.SZQRCodeCoverViewDemo;
@@ -510,6 +517,7 @@
 				24D9E5101C1EC0CF00BFEE22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24D9E5111C1EC0CF00BFEE22 /* Build configuration list for PBXNativeTarget "SZQRCodeCoverViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +526,7 @@
 				24D9E5131C1EC0CF00BFEE22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24D9E5141C1EC0CF00BFEE22 /* Build configuration list for PBXNativeTarget "SZQRCodeCoverViewDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +535,7 @@
 				24D9E5161C1EC0CF00BFEE22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
